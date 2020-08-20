@@ -1,0 +1,41 @@
+#main-picture {
+  height: auto;
+  min-height: 500px;
+  width: 100%;
+  background: url('/img/main-lg.jpg');
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#main-square {
+  top: 10%;
+  left: 5%;
+  position: absolute;
+  background-color: #0096c7;
+  opacity: .9;
+  z-index: 888;
+  min-height: 300px;
+  height: 350px;
+  width: 90%;
+  border-radius: 5px;
+}
+
+.date-input {
+  margin-right: 1.75rem !important;
+  margin-top: 1rem !important;
+  color: #FFFFFF !important;
+  opacity: 1;
+  z-index: 99999;
+}
+
+
+#search-button {
+  margin-top: 1rem;
+}
+
+.spinner {
+  max-width: 50px;
+  text-align: center;
+  margin-top: 1rem;
+}
