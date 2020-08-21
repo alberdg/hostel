@@ -1,3 +1,4 @@
+export const SEARCH_BUTTON = '#search-button';
 export const THEME = {
   overrides: {
     MuiInputBase: {
