@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import './index.css';
+import RoomList from './RoomList';
+import './landing.css';
 
 /**
  * Functional component to represent landing page
@@ -13,13 +14,19 @@ const Landing = () => {
   const [ dateIn, setDateIn ] = useState('');
   const [ dateOut, setDateOut ] = useState('');
   const [ loading, setLoading ] = useState(false);
+  const [ showResults, setShowResults ] = useState(false);
 
   /**
    * Handles room search
    * @function
    */
   const handleSearch = () => {
+    setShowResults(false);
     setLoading(true);
+    setTimeout(() => {
+      setShowResults(true);
+      setLoading(false)
+    }, 1000);
   }
 
   /**
@@ -166,9 +173,24 @@ const Landing = () => {
     );
   }
 
+  /**
+   * Renders list of available rooms section
+   * @function
+   * @returns { JSX.Element } element Section with list of available rooms
+   */
+  const renderListSection = () => {
+    if (!showResults) return null;
+    return (
+      <section id="rooms">
+        <RoomList />
+      </section>
+    );
+  }
+
   return (
     <>
       {renderPictureSection()}
+      {renderListSection()}
     </>
   )
 }

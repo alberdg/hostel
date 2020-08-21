@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
+import { SEARCH_BUTTON } from '../../../constants';
 const MAIN_PICTURE_SELECTOR = '#main-picture';
-const SEARCH_BUTTON = '#search-button';
 let page, browser;
 
 const formatDate = date => {
@@ -34,12 +34,12 @@ describe('Landing component tests', () => {
 
   it('Should have a title', async () => {
     const text = await page.$eval('#title', el => el.innerHTML);
-    expect(text).toEqual('Hostal Paracual');
+    expect(text).toEqual('Bridge Mills Hostel');
   });
 
   it('Should have a subtitle', async () => {
     const text = await page.$eval('#subtitle', el => el.innerHTML);
-    expect(text).toEqual('Donde descansarás como en tu propia casa');
+    expect(text).toEqual('Where your dreams come true');
   });
 
   it('Should have a submit form button', async () => {
