@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -36,7 +37,9 @@ const RoomListItem = ({ room }) => {
    */
   const renderRoomItem = () => {
     const { picture, title } = room;
+    debugger;
     return (
+
       <li className="room-list-item">
         <Grid container>
           <Grid item xs={12} md={4} lg={2}>
@@ -57,12 +60,14 @@ const RoomListItem = ({ room }) => {
    * @returns { JSX.Element } element Room title
    */
   const renderRoomTitle = () => {
-    const { title } = room;
+    const { title, _id } = room;
     return (
       <Grid item xs={12}>
-        <Typography variant="h6" component="h4" className="room-list-item-title">
-          {title}
-        </Typography>
+        <Link to={`/details/${_id}`}>
+          <Typography variant="h6" component="h4" className="room-list-item-title">
+            {title}
+          </Typography>
+        </Link>
       </Grid>
     )
   }
@@ -105,11 +110,14 @@ const RoomListItem = ({ room }) => {
    * @returns { JSX.Element } element Room price
    */
   const renderRoomActions = () => {
+    const { _id } = room;
     return (
       <Grid item xs={12}>
-        <Button variant="contained" color="primary" className="room-list-item-button">
-          Details
-        </Button>
+        <Link to={`/details/${_id}`}>
+          <Button variant="contained" color="primary" className="room-list-item-button">
+            Details
+          </Button>
+        </Link>
         <Button variant="contained" color="primary" className="room-list-item-button">
           Book
         </Button>
