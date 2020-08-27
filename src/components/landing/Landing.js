@@ -167,7 +167,7 @@ const Landing = () => {
   const renderSpinner = () => {
     if (!loading) return null;
     return (
-      <Grid item xs={12} alignItems="center">
+      <Grid item xs={12}>
         <img src="/img/spinner.gif" alt="Loading..." className="spinner" id="#spinner"/>
       </Grid>
     );

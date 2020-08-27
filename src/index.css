@@ -19,3 +19,9 @@ code {
 .font-bold {
   font-weight: 600 !important;
 }
+
+
+a {
+  text-decoration: none !important;
+  color: black;
+}
