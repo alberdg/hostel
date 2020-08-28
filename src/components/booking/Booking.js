@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography'
 import HorizontalLinearStepper from '../common/Step';
 import PersonalDataForm from './PersonalDataForm';
 import PaymentDataForm from './PaymentDataForm';
+import Confirmation from './Confirmation';
 import { ROOMS } from '../../constants';
 import { BookingContext } from '../../contexts/BookingContext';
 
@@ -31,7 +32,7 @@ const Booking = ({ match }) => {
   const [ room, setRoom ] = useState(null);
   const [ loading, setLoading ] = useState(true);
   const { dateIn, dateOut } = useContext(BookingContext);
-  
+
   useEffect(() => {
     const room = ROOMS.find(item => item._id === roomId);
     setRoom(room);
@@ -151,12 +152,22 @@ const Booking = ({ match }) => {
     return <PaymentDataForm />
   }
 
+  /**
+   * Renders confirmation
+   * @function
+   * @returns { JSX.Element } element Confirmation element
+   */
+  const renderConfirmation = () => {
+    return <Confirmation />
+  }
+
   return (
     <Grid item container>
       {renderSteps()}
       {renderRoomInformation()}
       {renderPersonalDataForm()}
       {renderPaymentDataForm()}
+      {renderConfirmation()}
     </Grid>
   )
 }

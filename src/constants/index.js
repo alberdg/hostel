@@ -32,7 +32,7 @@ export const THEME = {
 export const ROOMS = [
   {
     _id: 1,
-    picture: 'https://lh3.googleusercontent.com/proxy/l_wLw-nqEmmO6w-S6JfgPyIt-I5Rg2QpZANSpxd0xmtYAyM3ZfCaxcbAQHv6giJ_TXznTGCjdGso8MlllgHcNCW6aA84Myliw8RF0Bgd-o_HCuPvqAeMcBfbAA4',
+    picture: 'https://i.pinimg.com/originals/73/21/30/732130ccb92210b9d33c9f7806fcc6b3.jpg',
     title: 'Room 1',
     subtitle: 'First floor, 2 beds, shared bathroom',
     beds: 2,
@@ -92,7 +92,7 @@ export const ROOMS = [
   },
   {
     _id: 7,
-    picture: 'https://lh3.googleusercontent.com/proxy/l_wLw-nqEmmO6w-S6JfgPyIt-I5Rg2QpZANSpxd0xmtYAyM3ZfCaxcbAQHv6giJ_TXznTGCjdGso8MlllgHcNCW6aA84Myliw8RF0Bgd-o_HCuPvqAeMcBfbAA4',
+    picture: 'https://www.hostelruthensteiner.com/wp-content/uploads/2013/10/Private-Double-Room-bathroom-toilet-ensuite.jpg',
     title: 'Room 7',
     subtitle: 'Third Floor, 2 beds, shared bathroom',
     beds: 2,

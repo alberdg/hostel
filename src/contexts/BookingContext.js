@@ -14,7 +14,7 @@ const BookingContextProvider = (props) => {
   const [ lastname, setLastname ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ phoneNumber, setPhoneNumber ] = useState('');
-  const [ bookingStep, setBookingStep ] = useState(0);
+  const [ bookingStep, setBookingStep ] = useState(2);
 
   const [ cardHolderName, setCardHolderName ] = useState('');
   const [ cardNumber, setCardNumber ] = useState('');
@@ -22,6 +22,24 @@ const BookingContextProvider = (props) => {
   const [ cardExpirationMonth, setCardExpirationMonth ] = useState('');
   const [ cardExpirationYear, setCardExpirationYear ] = useState('');
 
+  /**
+   * Clears booking from context
+   * @function
+   */
+  const clearBooking = () => {
+    setDateIn('');
+    setDateOut('');
+    setFirstname('');
+    setLastname('');
+    setEmail('');
+    setPhoneNumber('');
+    setBookingStep(0);
+    setCardHolderName('');
+    setCardNumber('');
+    setCardCvc('');
+    setCardExpirationMonth('');
+    setCardExpirationYear('');
+  }
   /**
    * Stores date in into context
    * @function
@@ -141,6 +159,7 @@ const BookingContextProvider = (props) => {
       cardCvc, storeCardCvc,
       cardExpirationMonth, storeCardExpirationMonth,
       cardExpirationYear, storeCardExpirationYear,
+      clearBooking,
     }}>
       {props.children}
     </BookingContext.Provider>
