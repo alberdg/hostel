@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import RoomList from './RoomList';
+import { BookingContext } from '../../contexts/BookingContext';
 import './landing.css';
 
 /**
@@ -11,8 +12,10 @@ import './landing.css';
  * @returns { JSX.Element } element Landing component
  */
 const Landing = () => {
-  const [ dateIn, setDateIn ] = useState('');
-  const [ dateOut, setDateOut ] = useState('');
+  const {
+    dateIn, storeDateIn,
+    dateOut, storeDateOut
+  } = useContext(BookingContext);
   const [ loading, setLoading ] = useState(false);
   const [ showResults, setShowResults ] = useState(false);
 
@@ -128,13 +131,13 @@ const Landing = () => {
           'date-in-input',
           'Checkin date',
           dateIn,
-          event => setDateIn(event.target.value))
+          event => storeDateIn(event.target.value))
         }
         {renderDateInput(
           'date-out-input',
           'Checkout date',
           dateOut,
-          event => setDateOut(event.target.value))
+          event => storeDateOut(event.target.value))
         }
       </Grid>
     );
