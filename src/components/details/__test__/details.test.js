@@ -44,7 +44,7 @@ describe('Details component tests', () => {
     expect(length).toEqual(1);
   });
 
-  it('Should navigate to booking page', async () => {
+  it.skip('Should navigate to booking page', async () => {
     await page.click(BOOK_NOW_BUTTON);
     await page.waitFor(BOOKING_TITLE);
     const length = await page.$$eval(BOOKING_TITLE, el => el.length);
