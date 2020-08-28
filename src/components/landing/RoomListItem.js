@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
  * @returns { JSX.Element } element List of available rooms
  */
 const RoomListItem = ({ room }) => {
-
   /**
    * Renders single room detail
    * @function
@@ -118,9 +117,15 @@ const RoomListItem = ({ room }) => {
             Details
           </Button>
         </Link>
-        <Button variant="contained" color="primary" className="room-list-item-button">
-          Book
-        </Button>
+        <Link to={`/booking/${_id}`}>
+          <Button
+            variant="contained"
+            color="primary"
+            className="room-list-item-button"
+          >
+            Book
+          </Button>
+        </Link>
       </Grid>
     )
   }
