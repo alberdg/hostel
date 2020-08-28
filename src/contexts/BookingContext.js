@@ -8,6 +8,8 @@ export const BookingContext = createContext();
  * @returns { Object } context Booking context
  */
 const BookingContextProvider = (props) => {
+  const [ dateIn, setDateIn ] = useState('');
+  const [ dateOut, setDateOut ] = useState('');
   const [ firstname, setFirstname ] = useState('');
   const [ lastname, setLastname ] = useState('');
   const [ email, setEmail ] = useState('');
@@ -19,6 +21,22 @@ const BookingContextProvider = (props) => {
   const [ cardCvc, setCardCvc ] = useState('');
   const [ cardExpirationMonth, setCardExpirationMonth ] = useState('');
   const [ cardExpirationYear, setCardExpirationYear ] = useState('');
+
+  /**
+   * Stores date in into context
+   * @function
+   */
+  const storeDateIn = dateIn => {
+    setDateIn(dateIn);
+  }
+
+  /**
+   * Stores date out into context
+   * @function
+   */
+  const storeDateOut = dateOut => {
+    setDateOut(dateOut);
+  }
 
   /**
    * Stores first name in context
@@ -93,7 +111,7 @@ const BookingContextProvider = (props) => {
    }
 
    /**
-    * Stores card expiration month in context 
+    * Stores card expiration month in context
     * @function
     * @param { String } cardExpirationMonth Card expiration month
     */
@@ -111,6 +129,8 @@ const BookingContextProvider = (props) => {
    }
   return (
     <BookingContext.Provider value={{
+      dateIn, storeDateIn,
+      dateOut, storeDateOut,
       firstname, storeFirstname,
       lastname, storeLastname,
       email, storeEmail,
