@@ -1,0 +1,13 @@
+.details-picture {
+  max-width: 100% !important;
+  min-width: 600px;
+}
+.details-description {
+  min-width: 600px;
+  max-width: 600px !important
+}
+
+.mx-auto {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
