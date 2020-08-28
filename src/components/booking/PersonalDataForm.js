@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { isValidEmail, isValidPhoneNumber } from '../../utils';
 import { BookingContext } from '../../contexts/BookingContext';
+import ErrorMessage from '../common/ErrorMessage';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
     marginLeft: theme.spacing(5),
     marginTop: theme.spacing(2),
-  }
+  },
 }));
 
 /**
@@ -36,9 +37,11 @@ const PersonalDataForm = () => {
     email, storeEmail,
     phoneNumber, storePhoneNumber,
     bookingStep, storeBookingStep,
+    dateIn, dateOut
   } = useContext(BookingContext);
 
   if (bookingStep !== 0) return null;
+
   /**
    * Checks if the form is invalid
    * @function
@@ -48,6 +51,17 @@ const PersonalDataForm = () => {
     return firstname.trim().length === 0 || lastname.trim().length === 0 || !isValidEmail(email)
       || !isValidPhoneNumber(phoneNumber);
   }
+
+
+
+  if (dateIn.trim().length === 0 || dateOut.trim().length === 0) {
+    return (
+      <ErrorMessage
+        message="Invalid booking dates, please go to main page and choose valid dates"
+      />
+    );
+  }
+
   /**
    * Renders firstname input
    * @function
@@ -129,6 +143,8 @@ const PersonalDataForm = () => {
       </Grid>
     );
   }
+
+
 
   /**
    * Renders form actions
