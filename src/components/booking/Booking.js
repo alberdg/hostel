@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography'
@@ -6,6 +6,7 @@ import HorizontalLinearStepper from '../common/Step';
 import PersonalDataForm from './PersonalDataForm';
 import PaymentDataForm from './PaymentDataForm';
 import { ROOMS } from '../../constants';
+import { BookingContext } from '../../contexts/BookingContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +30,8 @@ const Booking = ({ match }) => {
   const roomId = parseInt(match?.params?.id);
   const [ room, setRoom ] = useState(null);
   const [ loading, setLoading ] = useState(true);
-
+  const { dateIn, dateOut } = useContext(BookingContext);
+  
   useEffect(() => {
     const room = ROOMS.find(item => item._id === roomId);
     setRoom(room);
@@ -100,6 +102,15 @@ const Booking = ({ match }) => {
     )
   }
 
+  const renderDates = () => {
+    return (
+      <Grid item xs={12} className="mt-3">
+        <Typography variant="body1" component="span">
+          Checkin date: {dateIn} - Checkout date: {dateOut}
+        </Typography>
+      </Grid>
+    )
+  }
   /**
    * Renders all the room information needed
    * @function
@@ -115,6 +126,7 @@ const Booking = ({ match }) => {
         <Grid item xs={12} md={8}>
           {renderTitle()}
           {renderSubtitle()}
+          {renderDates()}
           {renderPrice()}
         </Grid>
       </>
