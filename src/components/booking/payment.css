@@ -1,0 +1,8 @@
+.stripe-logo {
+  background: url('/img/stripe-logo.png');
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  min-width: 300px;
+  min-height: 100px;
+}

@@ -63,7 +63,7 @@ const HorizontalLinearStepper = () => {
 
   return (
     <div className={classes.root} id="booking-step">
-      <Stepper bookingStep={bookingStep}>
+      <Stepper activeStep={bookingStep}>
         {steps.map((label, index) => {
           const stepProps = {
             active: index === bookingStep

@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography'
 import HorizontalLinearStepper from '../common/Step';
 import PersonalDataForm from './PersonalDataForm';
+import PaymentDataForm from './PaymentDataForm';
 import { ROOMS } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +46,7 @@ const Booking = ({ match }) => {
 
   const renderSteps = () => {
     return (
-      <Grid item xs={12} classNae="mt-3 text-center">
+      <Grid item xs={12} className="mt-3 text-center">
         <HorizontalLinearStepper />
       </Grid>
     )
@@ -120,8 +121,22 @@ const Booking = ({ match }) => {
     )
   }
 
+  /**
+   * Renders personal data form
+   * @function
+   * @returns { JSX.Element } element Personal data form
+   */
   const renderPersonalDataForm = () => {
     return <PersonalDataForm />
+  }
+
+  /**
+   * Renders payment data form
+   * @function
+   * @returns { JSX.Element } element Payment data form
+   */
+  const renderPaymentDataForm = () => {
+    return <PaymentDataForm />
   }
 
   return (
@@ -129,6 +144,7 @@ const Booking = ({ match }) => {
       {renderSteps()}
       {renderRoomInformation()}
       {renderPersonalDataForm()}
+      {renderPaymentDataForm()}
     </Grid>
   )
 }
