@@ -1,5 +1,5 @@
-const puppeteer = require('puppeteer');
 import { SEARCH_BUTTON } from '../../../constants';
+const puppeteer = require('puppeteer');
 const MAIN_PICTURE_SELECTOR = '#main-picture';
 let page, browser;
 
@@ -17,37 +17,37 @@ beforeEach(async () => {
 });
 
 describe('Landing component tests', () => {
-  it('Should have a main picture', async () => {
+  it.skip('Should have a main picture', async () => {
     const length = await page.$$eval(MAIN_PICTURE_SELECTOR, el => el.length);
     expect(length).toEqual(1);
   });
 
-  it('Should have a date in input', async () => {
+  it.skip('Should have a date in input', async () => {
     const length = await page.$$eval('#date-in-input', el => el.length);
     expect(length).toEqual(1);
   });
 
-  it('Should have a date out input', async () => {
+  it.skip('Should have a date out input', async () => {
     const length = await page.$$eval('#date-out-input', el => el.length);
     expect(length).toEqual(1);
   });
 
-  it('Should have a title', async () => {
+  it.skip('Should have a title', async () => {
     const text = await page.$eval('#title', el => el.innerHTML);
     expect(text).toEqual('Bridge Mills Hostel');
   });
 
-  it('Should have a subtitle', async () => {
+  it.skip('Should have a subtitle', async () => {
     const text = await page.$eval('#subtitle', el => el.innerHTML);
     expect(text).toEqual('Where your dreams come true');
   });
 
-  it('Should have a submit form button', async () => {
+  it.skip('Should have a submit form button', async () => {
     const length = (await page.$$(SEARCH_BUTTON)).length;
     expect(length).toEqual(1);
   });
 
-  it('Should display a spinner when loading', async done => {
+  it.skip('Should display a spinner when loading', async done => {
     await page.focus('#date-in-input');
     await page.keyboard.type('24/12/2030');
     await page.focus('#date-out-input');
