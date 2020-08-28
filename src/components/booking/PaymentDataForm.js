@@ -6,6 +6,8 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { BookingContext } from '../../contexts/BookingContext';
+import ErrorMessage from '../common/ErrorMessage';
+import { isValidEmail, isValidPhoneNumber } from '../../utils';
 import './payment.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -45,6 +47,8 @@ const useStyles = makeStyles((theme) => ({
 const PaymentDataForm = () => {
   const classes = useStyles();
   const {
+    dateIn,
+    dateOut,
     firstname,
     lastname,
     email,
@@ -61,6 +65,25 @@ const PaymentDataForm = () => {
 
 
   const now = new Date();
+
+  // Let's validate if the checkin and checkout dates are provided
+  if (dateIn.trim().length === 0 || dateOut.trim().length === 0) {
+    return (
+      <ErrorMessage
+        message="Invalid booking dates, please go to main page and choose valid dates"
+      />
+    );
+  }
+
+  // Let's validate if the personal data is provided
+  if (firstname.trim().length === 0 || lastname.trim().length === 0 ||
+    !isValidEmail(email) || !isValidPhoneNumber(phoneNumber)) {
+    return (
+      <ErrorMessage
+        message="Invalid personal data, please restart the process and provide the required data"
+      />
+    );
+  }
 
   /**
    * Validates a card expiration month
