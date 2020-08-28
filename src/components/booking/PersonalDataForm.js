@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { isValidEmail, isValidPhoneNumber } from '../../utils';
+import { BookingContext } from '../../contexts/BookingContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,11 +30,15 @@ const useStyles = makeStyles((theme) => ({
  */
 const PersonalDataForm = () => {
   const classes = useStyles();
-  const [ firstname, setFirstname ] = useState('');
-  const [ lastname, setLastname ] = useState('');
-  const [ email, setEmail ] = useState('');
-  const [ phoneNumber, setPhoneNumber ] = useState('');
+  const {
+    firstname, storeFirstname,
+    lastname, storeLastname,
+    email, storeEmail,
+    phoneNumber, storePhoneNumber,
+    bookingStep, storeBookingStep,
+  } = useContext(BookingContext);
 
+  if (bookingStep !== 0) return null;
   /**
    * Checks if the form is invalid
    * @function
@@ -56,7 +61,7 @@ const PersonalDataForm = () => {
           variant="outlined"
           value={firstname}
           placeholder="First name"
-          onChange={event => setFirstname(event.target.value)}
+          onChange={event => storeFirstname(event.target.value)}
           className={classes.input}
         />
       </Grid>
@@ -76,7 +81,7 @@ const PersonalDataForm = () => {
           variant="outlined"
           value={lastname}
           placeholder="Last name"
-          onChange={event => setLastname(event.target.value)}
+          onChange={event => storeLastname(event.target.value)}
           className={classes.input}
         />
       </Grid>
@@ -97,7 +102,7 @@ const PersonalDataForm = () => {
           variant="outlined"
           value={email}
           placeholder="E-mail"
-          onChange={event => setEmail(event.target.value)}
+          onChange={event => storeEmail(event.target.value)}
           className={classes.input}
         />
       </Grid>
@@ -118,7 +123,7 @@ const PersonalDataForm = () => {
           variant="outlined"
           value={phoneNumber}
           placeholder="Telephone"
-          onChange={event => setPhoneNumber(event.target.value)}
+          onChange={event => storePhoneNumber(event.target.value)}
           className={classes.input}
         />
       </Grid>
@@ -140,6 +145,7 @@ const PersonalDataForm = () => {
           color="primary"
           className={classes.button}
           disabled={disabled}
+          onClick={() => storeBookingStep(bookingStep + 1)}
         >
           Next
         </Button>
@@ -148,6 +154,7 @@ const PersonalDataForm = () => {
           variant="contained"
           color="secondary"
           className={classes.button}
+          onClick={() => storeBookingStep(0)}
         >
           Cancel
         </Button>
