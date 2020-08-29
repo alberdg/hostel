@@ -121,7 +121,7 @@ const Booking = ({ match }) => {
     const { picture, title } = room;
     return (
       <Grid item xs={12} className="full-width-with-padding display-inline-flex">
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={4} className="sm-text-center">
           <img src={picture} alt={title} className="md-booking-picture booking-picture" />
         </Grid>
         <Grid item xs={12} md={8}>
