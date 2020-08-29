@@ -36,7 +36,6 @@ const RoomListItem = ({ room }) => {
    */
   const renderRoomItem = () => {
     const { picture, title } = room;
-    debugger;
     return (
 
       <li className="room-list-item">

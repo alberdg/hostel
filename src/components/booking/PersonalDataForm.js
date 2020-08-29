@@ -12,15 +12,13 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   input: {
-    marginRight: theme.spacing(1),
-    marginLeft: theme.spacing(5),
-    marginTop: theme.spacing(1),
-    width: '90%',
+    width: '100%'
   },
   button: {
     marginRight: theme.spacing(1),
     marginLeft: theme.spacing(5),
     marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
   },
 }));
 
@@ -179,7 +177,7 @@ const PersonalDataForm = () => {
   }
 
   return (
-    <Grid item container className={classes.root}>
+    <Grid item container className="mt-3 full-width-with-padding">
       {renderFirstnameInput()}
       {renderLastnameInput()}
       {renderEmailInput()}
