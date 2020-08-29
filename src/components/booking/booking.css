@@ -1,0 +1,12 @@
+.booking-picture {
+  max-width: 100% !important;
+}
+
+@media only screen and (min-width: 415px) {
+  .display-inline-flex {
+    display: inline-flex !important;
+  }
+  .md-booking-picture {
+    max-width: 90% !important;
+  }
+}

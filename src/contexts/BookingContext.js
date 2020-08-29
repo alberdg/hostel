@@ -14,7 +14,7 @@ const BookingContextProvider = (props) => {
   const [ lastname, setLastname ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ phoneNumber, setPhoneNumber ] = useState('');
-  const [ bookingStep, setBookingStep ] = useState(1);
+  const [ bookingStep, setBookingStep ] = useState(0);
 
   const [ cardHolderName, setCardHolderName ] = useState('');
   const [ cardNumber, setCardNumber ] = useState('');

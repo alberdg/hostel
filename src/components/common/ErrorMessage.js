@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
  */
 const ErrorMessage = ({ message }) => {
   const classes = useStyles();
-  
+
   /**
    * Renders invalid dates error message
    * @function
@@ -37,7 +37,7 @@ const ErrorMessage = ({ message }) => {
    */
   const renderErrorMessage = () => {
     return (
-      <Grid item xs={12} className={classes.alert}>
+      <Grid item xs={12} className="mt-3 full-width-with-padding">
         <Alert severity="error">{message}</Alert>
       </Grid>
     );
@@ -50,13 +50,12 @@ const ErrorMessage = ({ message }) => {
    */
   const renderBackButton = () => {
     return (
-      <Grid item xs={12} className={classes.spacing}>
+      <Grid item xs={12} className="mt-3 full-width-with-padding">
         <Link to="/">
           <Button
             id="cancel-button"
             variant="contained"
             color="primary"
-            className={classes.button}
           >
             Back
           </Button>

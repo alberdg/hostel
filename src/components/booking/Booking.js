@@ -8,7 +8,7 @@ import PaymentDataForm from './PaymentDataForm';
 import Confirmation from './Confirmation';
 import { ROOMS } from '../../constants';
 import { BookingContext } from '../../contexts/BookingContext';
-
+import './booking.css';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -63,7 +63,7 @@ const Booking = ({ match }) => {
   const renderTitle = () => {
     const { title } = room;
     return (
-      <Grid item xs={12}>
+      <Grid item xs={12} className="mobile-text-center">
         <Typography variant="h5" component="h1">
           {title}
         </Typography>
@@ -79,7 +79,7 @@ const Booking = ({ match }) => {
   const renderSubtitle = () => {
     const { subtitle } = room;
     return (
-      <Grid item xs={12} className="mt-3">
+      <Grid item xs={12} className="mt-3 mobile-text-center">
         <Typography variant="body1" component="p">
           {subtitle}
         </Typography>
@@ -95,7 +95,7 @@ const Booking = ({ match }) => {
   const renderPrice = () => {
     const { price } = room;
     return (
-      <Grid item xs={12} className="mt-3">
+      <Grid item xs={12} className="mt-3 mobile-text-center">
         <Typography variant="body2" component="span" className="font-bold">
           {price}€ per night
         </Typography>
@@ -105,7 +105,7 @@ const Booking = ({ match }) => {
 
   const renderDates = () => {
     return (
-      <Grid item xs={12} className="mt-3">
+      <Grid item xs={12} className="mt-3 mobile-text-center">
         <Typography variant="body1" component="span">
           Checkin date: {dateIn} - Checkout date: {dateOut}
         </Typography>
@@ -120,9 +120,9 @@ const Booking = ({ match }) => {
   const renderRoomInformation = () => {
     const { picture, title } = room;
     return (
-      <>
+      <Grid item xs={12} className="full-width-with-padding display-inline-flex">
         <Grid item xs={12} md={4}>
-          <img src={picture} alt={title} className={classes.picture} />
+          <img src={picture} alt={title} className="md-booking-picture booking-picture" />
         </Grid>
         <Grid item xs={12} md={8}>
           {renderTitle()}
@@ -130,7 +130,7 @@ const Booking = ({ match }) => {
           {renderDates()}
           {renderPrice()}
         </Grid>
-      </>
+      </Grid>
     )
   }
 
