@@ -50,3 +50,10 @@ a {
   max-width: 100%;
   width: 200px;
 }
+
+.full-width-with-padding {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 90% !important;
+  align-items: center;
+}

@@ -43,7 +43,7 @@ const Details = ({ match }) => {
   const renderTitle = () => {
     const { title } = room;
     return (
-      <Grid item xs={12} className="mt-3 text-center">
+      <Grid item xs={12} className="mt-3 text-center full-width-with-padding">
         <Typography id="details-title" variant="h4" component="h1">
         {title}
         </Typography>
@@ -59,7 +59,7 @@ const Details = ({ match }) => {
   const renderSubtitle = () => {
     const { subtitle } = room;
     return (
-      <Grid item xs={12} className="mt-3 text-center">
+      <Grid item xs={12} className="mt-3 text-center full-width-with-padding">
         <Typography id="details-subtitle" variant="body1" component="h2">
         {subtitle}
         </Typography>
@@ -75,7 +75,7 @@ const Details = ({ match }) => {
   const renderDescription = () => {
     const { description } = room;
     return (
-      <Grid item xs={12} className="mt-3">
+      <Grid item xs={12} className="mt-3 full-width-with-padding">
         <Typography variant="body2" component="p" className="details-description mx-auto">
         {description}
         </Typography>
@@ -90,7 +90,7 @@ const Details = ({ match }) => {
    * */
   const renderPicture = () => {
     return (
-      <Grid item xs={12} className="text-center mt-3">
+      <Grid item xs={12} className="text-center mt-3 full-width-with-padding">
         <img src={room.picture} alt={room.title} className="details-picture"/>
       </Grid>
     )
@@ -104,7 +104,7 @@ const Details = ({ match }) => {
   const renderPrice = () => {
     const { price } = room;
     return (
-      <Grid item xs={12} className="mt3 text-center">
+      <Grid item xs={12} className="mt3 text-center full-width-with-padding">
         <Typography id="details-price" variant="body1" component="span" className="font-bold">
           Price per person: {price}€
         </Typography>
@@ -119,7 +119,7 @@ const Details = ({ match }) => {
    * */
   const renderBookNow = () => {
     return (
-      <Grid item xs={12} className="mt-3 mb-3 text-center">
+      <Grid item xs={12} className="mt-3 mb-3 text-center full-width-with-padding">
         <Link to={`/booking/${roomId}`} id="book-now-button">
           <Button  variant="contained" color="primary">
             Book now
