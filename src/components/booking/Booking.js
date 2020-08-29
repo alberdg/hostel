@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography'
 import HorizontalLinearStepper from '../common/Step';
@@ -9,17 +8,6 @@ import Confirmation from './Confirmation';
 import { ROOMS } from '../../constants';
 import { BookingContext } from '../../contexts/BookingContext';
 import './booking.css';
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-  },
-  picture: {
-    marginRight: theme.spacing(1),
-    marginLeft: theme.spacing(5),
-    marginTop: theme.spacing(1),
-    maxWidth: 200
-  }
-}));
 
 /**
  * Functional class representing booking component
@@ -27,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
  * @returns { JSX.Element } element Booking component
  */
 const Booking = ({ match }) => {
-  const classes = useStyles();
   const roomId = parseInt(match?.params?.id);
   const [ room, setRoom ] = useState(null);
   const [ loading, setLoading ] = useState(true);

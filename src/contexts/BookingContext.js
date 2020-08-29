@@ -8,12 +8,12 @@ export const BookingContext = createContext();
  * @returns { Object } context Booking context
  */
 const BookingContextProvider = (props) => {
-  const [ dateIn, setDateIn ] = useState('2020-12-09');
-  const [ dateOut, setDateOut ] = useState('2020-12-09');
-  const [ firstname, setFirstname ] = useState('Alberto');
-  const [ lastname, setLastname ] = useState('Godar');
-  const [ email, setEmail ] = useState('albertogodar@gmail.com');
-  const [ phoneNumber, setPhoneNumber ] = useState('687014958');
+  const [ dateIn, setDateIn ] = useState('');
+  const [ dateOut, setDateOut ] = useState('');
+  const [ firstname, setFirstname ] = useState('');
+  const [ lastname, setLastname ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ phoneNumber, setPhoneNumber ] = useState('');
   const [ bookingStep, setBookingStep ] = useState(0);
 
   const [ cardHolderName, setCardHolderName ] = useState('');
