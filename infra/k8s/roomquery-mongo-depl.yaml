@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: roomquery-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: roomquery-mongo
+  template:
+    metadata:
+      labels:
+        app: roomquery-mongo
+    spec:
+      containers:
+        - name: roomquery-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: roomquery-mongo-srv
+spec:
+  selector:
+    app: roomquery-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
