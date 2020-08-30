@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: roomquery-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: roomquery
+  template:
+    metadata:
+      labels:
+        app: roomquery
+    spec:
+      containers:
+        - name: roomquery
+          image: alberdg/roomquery
+          env:
+            - name: MONGO_URI
+              value: mongodb://roomquery-mongo-srv:27017/roomquery
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: roomquery-srv
+spec:
+  selector:
+    app: roomquery
+  ports:
+    - name: roomquery
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
